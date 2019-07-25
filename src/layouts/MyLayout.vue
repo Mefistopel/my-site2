@@ -1,6 +1,6 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+  <q-layout view="hhh LpR fFf" class="bg-deep-purple-5 text-white">
+    <q-header reveal elevated class="bg-deep-purple-6">
       <q-toolbar>
         <q-btn
           flat
@@ -8,35 +8,48 @@
           round
           @click="leftDrawerOpen = !leftDrawerOpen"
           aria-label="Menu"
-        >
-          <q-icon name="menu" />
-        </q-btn>
+          icon="menu"
+        />
 
         <q-toolbar-title>
-          Quasar App
+          Андрей Янусов
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <q-btn
+          flat
+          dense
+          round
+          @click="$router.push('/')"
+          aria-label="Menu"
+          icon="style"
+        >
+        <q-tooltip
+          transition-show="scale"
+          transition-hide="scale"
+        >
+          Залипалка...
+        </q-tooltip>
+        </q-btn>
       </q-toolbar>
     </q-header>
 
     <q-drawer
+      elevated
       v-model="leftDrawerOpen"
-      bordered
-      content-class="bg-grey-2"
+      content-class="bg-deep-purple-7"
     >
-      <q-list>
-        <q-item-label header>Essential Links</q-item-label>
-        <q-item clickable tag="a" target="_blank" href="https://quasar.dev">
+      <q-list dark>
+        <q-item-label header>Доступны разделы</q-item-label>
+        <q-item clickable tag="a" target="_blank" rel="noopener" href="http://quasar.dev">
           <q-item-section avatar>
             <q-icon name="school" />
           </q-item-section>
           <q-item-section>
-            <q-item-label>Docs</q-item-label>
-            <q-item-label caption>quasar.dev</q-item-label>
+            <q-item-label>Мои записи</q-item-label>
+            <q-item-label caption>https://quasar.dev</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://github.quasar.dev">
+        <q-item clickable tag="a" target="_blank" rel="noopener" href="https://github.quasar.dev">
           <q-item-section avatar>
             <q-icon name="code" />
           </q-item-section>
@@ -45,40 +58,41 @@
             <q-item-label caption>github.com/quasarframework</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://chat.quasar.dev">
+        <q-item clickable tag="a" target="_blank" rel="noopener" href="http://chat.quasar.dev">
           <q-item-section avatar>
             <q-icon name="chat" />
           </q-item-section>
           <q-item-section>
             <q-item-label>Discord Chat Channel</q-item-label>
-            <q-item-label caption>chat.quasar.dev</q-item-label>
+            <q-item-label caption>https://chat.quasar.dev</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://forum.quasar.dev">
+        <q-item clickable tag="a" target="_blank" rel="noopener" href="https://forum.quasar.dev">
           <q-item-section avatar>
             <q-icon name="record_voice_over" />
           </q-item-section>
           <q-item-section>
             <q-item-label>Forum</q-item-label>
-            <q-item-label caption>forum.quasar.dev</q-item-label>
+            <q-item-label caption>https://forum.quasar.dev</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://twitter.quasar.dev">
+        <q-item clickable tag="a" target="_blank" rel="noopener" href="https://www.instagram.com/an.yanusov/">
           <q-item-section avatar>
-            <q-icon name="rss_feed" />
+            <q-icon name="img:statics/icons/logo-vk.svg" style="color: primary" />
           </q-item-section>
           <q-item-section>
-            <q-item-label>Twitter</q-item-label>
-            <q-item-label caption>@quasarframework</q-item-label>
+            <q-item-label>Instagramm</q-item-label>
+            <q-item-label caption>@an.yanusov</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://facebook.quasar.dev">
+        <q-item clickable tag="a" target="_blank" rel="noopener" href="https://vk.com/im?sel=44035224">
           <q-item-section avatar>
-            <q-icon name="public" />
+            <ion-icon name="logo-vk"></ion-icon>
+            <q-icon name="logo-vk" />
           </q-item-section>
           <q-item-section>
-            <q-item-label>Facebook</q-item-label>
-            <q-item-label caption>@QuasarFramework</q-item-label>
+            <q-item-label>ВКонтакте</q-item-label>
+            <q-item-label caption>Напиши мне в ВК!</q-item-label>
           </q-item-section>
         </q-item>
       </q-list>
@@ -91,20 +105,12 @@
 </template>
 
 <script>
-import { openURL } from 'quasar'
-
 export default {
   name: 'MyLayout',
   data () {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop
     }
-  },
-  methods: {
-    openURL
   }
 }
 </script>
-
-<style>
-</style>
