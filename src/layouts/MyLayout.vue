@@ -40,59 +40,41 @@
     >
       <q-list dark>
         <q-item-label header>Доступны разделы</q-item-label>
-        <q-item clickable tag="a" target="_blank" rel="noopener" href="http://quasar.dev">
+        <q-item to="main">
           <q-item-section avatar>
-            <q-icon name="school" />
+            <q-icon name="ion-checkmark-circle-outline" />
           </q-item-section>
           <q-item-section>
-            <q-item-label>Мои записи</q-item-label>
-            <q-item-label caption>https://quasar.dev</q-item-label>
+            <q-item-label>Главная информация</q-item-label>
+            <q-item-label caption>Рекомендовано к прочтению</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable tag="a" target="_blank" rel="noopener" href="https://github.quasar.dev">
+        <q-item clickable to="about">
           <q-item-section avatar>
-            <q-icon name="code" />
+            <q-icon name="ion-trophy" />
           </q-item-section>
           <q-item-section>
-            <q-item-label>Github</q-item-label>
-            <q-item-label caption>github.com/quasarframework</q-item-label>
+            <q-item-label>Обо мне</q-item-label>
+            <q-item-label caption>Сводная информация</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable tag="a" target="_blank" rel="noopener" href="http://chat.quasar.dev">
+        <q-item clickable tag="a" target="_blank" rel="noopener" href="https://vk.com/an.yanusov">
           <q-item-section avatar>
-            <q-icon name="chat" />
+            <q-icon name="ion-logo-vk"></q-icon>
           </q-item-section>
           <q-item-section>
-            <q-item-label>Discord Chat Channel</q-item-label>
-            <q-item-label caption>https://chat.quasar.dev</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" rel="noopener" href="https://forum.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="record_voice_over" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Forum</q-item-label>
-            <q-item-label caption>https://forum.quasar.dev</q-item-label>
+            <q-item-label>ВКонтакте</q-item-label>
+            <q-item-label caption>Есть вопрос или предложение?
+              Напиши мне в ВК!</q-item-label>
           </q-item-section>
         </q-item>
         <q-item clickable tag="a" target="_blank" rel="noopener" href="https://www.instagram.com/an.yanusov/">
           <q-item-section avatar>
-            <q-icon name="img:statics/icons/logo-vk.svg" style="color: primary" />
+            <q-icon name="ion-logo-instagram"/>
           </q-item-section>
           <q-item-section>
-            <q-item-label>Instagramm</q-item-label>
-            <q-item-label caption>@an.yanusov</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" rel="noopener" href="https://vk.com/im?sel=44035224">
-          <q-item-section avatar>
-            <ion-icon name="logo-vk"></ion-icon>
-            <q-icon name="logo-vk" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>ВКонтакте</q-item-label>
-            <q-item-label caption>Напиши мне в ВК!</q-item-label>
+            <q-item-label>Instagram</q-item-label>
+            <q-item-label caption>Подпишись, там интересные посты: @an.yanusov</q-item-label>
           </q-item-section>
         </q-item>
       </q-list>
