@@ -1,48 +1,66 @@
 <template>
   <q-page class="flex justify-center">
     <q-card
-      dark
-      class="q-ma-md items-right"
-      text-color="grey-3"
-      inline
-      style="width: 900px"
-      :style="{'background-color': '#6A1B9A'}" >
-      <q-card-title>
-        {{ title }}
-        <span slot="subtitle">Янусов Андрей Сергеевич</span>
-        <div
-          slot="right"
-          class="row items-center">
-          <q-icon
-            slot="right"
-            name="more_vert">
-            <q-popover>
-              <q-list
-                dark
-                :style="{'background-color': '#6A1B9A'}"
-                link
-                class="no-border">
-                <q-item
-                  v-for="type in types"
-                  :key="type.title"
-                  @click.native="type.handler()"
-                  v-close-overlay>
-                  <q-item-main :label="type.label" />
-                </q-item>
-              </q-list>
-            </q-popover>
-          </q-icon>Кликни сюда
-        </div>
-      </q-card-title>
-      <q-card-separator />
-      <q-card-main>
-        <q-card-media v-if="title == 'Фото'">
-          <!-- <img src="../assets/vk_avatar.jpg"> -->
-        </q-card-media>
+      class="q-ma-md"
+      style="width: 1100px; background: radial-gradient(circle, #673AB7 0%, #6A1B9A 100%)"
+      >
+      <q-card-actions class="justify-center">
+        <q-btn
+          icon="ion-contact"
+          @click="category"
+          flat
+        >
+          <q-tooltip
+            transition-show="scale"
+            transition-hide="scale"
+          >
+            Фото
+          </q-tooltip>
+        </q-btn>
+        <q-btn icon="ion-school" @click="education" flat>
+          <q-tooltip
+            transition-show="scale"
+            transition-hide="scale"
+          >
+            Образование
+          </q-tooltip>
+        </q-btn>
+        <q-btn icon="ion-trending-up" @click="work" flat>
+          <q-tooltip
+            transition-show="scale"
+            transition-hide="scale"
+          >
+            Карьера
+          </q-tooltip>
+        </q-btn>
+        <q-btn icon="ion-ribbon" @click="skills" flat>
+          <q-tooltip
+            transition-show="scale"
+            transition-hide="scale"
+          >
+            Навыки, знания
+          </q-tooltip>
+        </q-btn>
+        <!-- <q-btn icon="ion-glasses" @click="notify" flat>
+          <q-tooltip
+            transition-show="scale"
+            transition-hide="scale"
+          >
+            Интересы, хобби
+          </q-tooltip>
+        </q-btn> -->
+      </q-card-actions>
+
+      <q-separator dark />
+      <br>
+        <q-img
+          v-if="title == 'Фото'"
+          :src="'https://sun9-13.userapi.com/c855124/v855124282/9f7f8/R1Ag4OEc8aM.jpg'"
+        />
+
         <app-education v-else-if="title == 'Образование'"/>
         <app-work v-else-if="title == 'Карьера'"/>
-        <track-record v-else-if="title == 'Достижения'"/>
-      </q-card-main>
+        <app-skills v-else-if="title == 'Навыки'"/>
     </q-card>
   </q-page>
 </template>
@@ -53,61 +71,17 @@
 <script>
 import Education from '../components/education'
 import Work from '../components/work'
-import trackRecord from '../components/trackRecord'
+import Skills from '../components/skills'
 
 export default {
-  name: 'PageIndex',
+  name: 'about',
   components: {
     appEducation: Education,
     appWork: Work,
-    trackRecord: trackRecord
+    appSkills: Skills
   },
   data () {
     return {
-      types: [
-        {
-          label: 'Фото',
-          handler: () => {
-            this.category()
-          }
-        },
-        {
-          label: 'Образование',
-          handler: () => {
-            this.education()
-          }
-        },
-        {
-          label: 'Карьера',
-          handler: () => {
-            this.work()
-          }
-        },
-        {
-          label: 'Достижения',
-          handler: () => {
-            this.trackRecord()
-          }
-        },
-        {
-          label: 'Навыки, знания',
-          handler: () => {
-            this.skills()
-          }
-        },
-        {
-          label: 'Личные качества',
-          handler: () => {
-            this.personalQuality()
-          }
-        },
-        {
-          label: 'Интересы, хобби',
-          handler: () => {
-            this.hobby()
-          }
-        }
-      ],
       title: 'Фото'
     }
   },
@@ -125,7 +99,7 @@ export default {
       this.title = 'Достижения'
     },
     skills () {
-      this.notify()
+      this.title = 'Навыки'
     },
     personalQuality () {
       this.notify()
@@ -137,10 +111,9 @@ export default {
       this.$q.notify({
         message: `Упс! Данный функционал пока отсутсвует.`,
         timeout: 1000, // in milliseconds; 0 means no timeout
-        type: 'warning',
+        color: 'warning',
         textColor: 'black',
         icon: 'build',
-        detail: 'Разрабатывается...',
         position: 'center'
       })
     }
