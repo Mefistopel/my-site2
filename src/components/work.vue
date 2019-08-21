@@ -24,7 +24,7 @@ export default {
         children: [
           {
             label: 'ООО "Элком+" г.Томск',
-            icon: 'restaurant_menu',
+            icon: 'work',
             children: [
               {
                 label: 'год: 2018 - 2019'
