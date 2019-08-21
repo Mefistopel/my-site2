@@ -6,6 +6,7 @@
     >
     <q-card-actions class="justify-center">
         <q-btn
+          :color="title == 'Думаешь о собственном сайте / WEB-приложении?' ? 'primary' : 'white'"
           icon="ion-desktop"
           @click="softwareDevelopment"
           flat
@@ -17,7 +18,11 @@
             Заказать сайт / web-приложение
           </q-tooltip>
         </q-btn>
-        <q-btn icon="ion-thumbs-up" @click="softwareTesting" flat>
+        <q-btn
+          :color="title == 'Хочешь качественно протестировать своё WEB-приложение?' ? 'primary' : 'white'"
+          icon="ion-thumbs-up"
+          @click="softwareTesting"
+          flat>
           <q-tooltip
             transition-show="scale"
             transition-hide="scale"
@@ -97,10 +102,9 @@ export default {
   name: 'PageMain',
   data () {
     return {
-      title: '',
-      subtitle: '',
-      text: '',
-      buttonText: ''
+      title: 'Думаешь о собственном сайте / WEB-приложении?',
+      subtitle: 'Заказывай разработку у нашей команды!',
+      buttonText: 'Заказать сайт'
     }
   },
   methods: {

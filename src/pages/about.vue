@@ -6,6 +6,7 @@
       >
       <q-card-actions class="justify-center">
         <q-btn
+          :color="title == 'Фото' ? 'primary' : 'white'"
           icon="ion-contact"
           @click="category"
           flat
@@ -17,7 +18,11 @@
             Фото
           </q-tooltip>
         </q-btn>
-        <q-btn icon="ion-school" @click="education" flat>
+        <q-btn
+          :color="title == 'Образование' ? 'primary' : 'white'"
+          icon="ion-school"
+          @click="education"
+          flat>
           <q-tooltip
             transition-show="scale"
             transition-hide="scale"
@@ -25,7 +30,11 @@
             Образование
           </q-tooltip>
         </q-btn>
-        <q-btn icon="ion-trending-up" @click="work" flat>
+        <q-btn
+          :color="title == 'Карьера' ? 'primary' : 'white'"
+          icon="ion-trending-up"
+         @click="work"
+         flat>
           <q-tooltip
             transition-show="scale"
             transition-hide="scale"
@@ -33,7 +42,11 @@
             Карьера
           </q-tooltip>
         </q-btn>
-        <q-btn icon="ion-ribbon" @click="skills" flat>
+        <q-btn
+          :color="title == 'Навыки' ? 'primary' : 'white'"
+          icon="ion-ribbon"
+          @click="skills"
+         flat>
           <q-tooltip
             transition-show="scale"
             transition-hide="scale"

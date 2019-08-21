@@ -8,6 +8,7 @@
       dark
       :nodes="props"
       node-key="label"
+      :expanded.sync="expanded"
     />
   </div>
 </template>
@@ -130,7 +131,8 @@ export default {
           }
         ]
       }
-    ]
+    ],
+    expanded: ['Карьерный путь', 'ООО "Элком+" г.Томск']
   })
 }
 </script>

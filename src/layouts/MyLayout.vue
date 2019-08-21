@@ -8,7 +8,7 @@
           round
           @click="leftDrawerOpen = !leftDrawerOpen"
           aria-label="Menu"
-          icon="menu"
+          :icon="leftDrawerOpen ? 'menu' : 'touch_app'"
         />
 
         <q-toolbar-title>
@@ -19,9 +19,10 @@
           flat
           dense
           round
+          :color="$route.path == '/' ? 'primary ' : 'white'"
           @click="$router.push('/')"
           aria-label="Menu"
-          icon="style"
+          icon="update"
         >
         <q-tooltip
           transition-show="scale"
@@ -49,7 +50,7 @@
             <q-item-label caption>Рекомендовано к прочтению</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable to="about">
+        <q-item clickable @click="toAbout">
           <q-item-section avatar>
             <q-icon name="ion-trophy" />
           </q-item-section>
@@ -92,6 +93,35 @@ export default {
   data () {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop
+    }
+  },
+  methods: {
+    toAbout () {
+      this.$q.dialog({
+        title: 'Подтверждение',
+        message: 'Для доступа к разделу введите код',
+        prompt: {
+          model: '',
+          type: 'text' // optional
+        },
+        cancel: true,
+        persistent: true,
+        color: 'primary'
+      }).onOk(data => {
+        if (data === '1') this.$router.push('about')
+        else this.notify()
+      }).onCancel(() => {}).onDismiss(() => {
+      })
+    },
+    notify () {
+      this.$q.notify({
+        message: `Упс! Вы ввели не правильный код.`,
+        timeout: 1400, // in milliseconds; 0 means no timeout
+        color: 'negative',
+        textColor: 'white',
+        icon: 'error',
+        position: 'center'
+      })
     }
   }
 }
