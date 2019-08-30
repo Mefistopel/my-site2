@@ -54,14 +54,18 @@
             Навыки, знания
           </q-tooltip>
         </q-btn>
-        <!-- <q-btn icon="ion-glasses" @click="notify" flat>
+        <q-btn
+          :color="title == 'Рекомендую' ? 'primary' : 'white'"
+          icon="ion-ice-cream"
+          @click="recommend"
+          flat>
           <q-tooltip
             transition-show="scale"
             transition-hide="scale"
           >
-            Интересы, хобби
+            Рекомендую
           </q-tooltip>
-        </q-btn> -->
+        </q-btn>
       </q-card-actions>
 
       <q-separator dark />
@@ -74,6 +78,7 @@
         <app-education v-else-if="title == 'Образование'"/>
         <app-work v-else-if="title == 'Карьера'"/>
         <app-skills v-else-if="title == 'Навыки'"/>
+        <app-recommend v-else-if="title == 'Рекомендую'"/>
     </q-card>
   </q-page>
 </template>
@@ -85,13 +90,15 @@
 import Education from '../components/education'
 import Work from '../components/work'
 import Skills from '../components/skills'
+import Recommend from '../components/recommend'
 
 export default {
   name: 'about',
   components: {
     appEducation: Education,
     appWork: Work,
-    appSkills: Skills
+    appSkills: Skills,
+    appRecommend: Recommend
   },
   data () {
     return {
@@ -114,8 +121,8 @@ export default {
     skills () {
       this.title = 'Навыки'
     },
-    personalQuality () {
-      this.notify()
+    recommend () {
+      this.title = 'Рекомендую'
     },
     hobby () {
       this.notify()

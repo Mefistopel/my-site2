@@ -59,6 +59,15 @@
             <q-item-label caption>Сводная информация</q-item-label>
           </q-item-section>
         </q-item>
+        <q-item to="services">
+          <q-item-section avatar>
+            <q-icon name="feedback" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Услуги</q-item-label>
+            <q-item-label caption>Рекомендовано к прочтению</q-item-label>
+          </q-item-section>
+        </q-item>
         <q-item clickable tag="a" target="_blank" rel="noopener" href="https://vk.com/an.yanusov">
           <q-item-section avatar>
             <q-icon name="ion-logo-vk"></q-icon>
@@ -99,7 +108,7 @@ export default {
     toAbout () {
       this.$q.dialog({
         title: 'Подтверждение',
-        message: 'Для доступа к разделу введите код',
+        message: 'Для доступа к разделу введите код: 1',
         prompt: {
           model: '',
           type: 'text' // optional

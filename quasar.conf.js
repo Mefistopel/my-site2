@@ -27,7 +27,7 @@ module.exports = function (ctx) {
 
     framework: {
       iconSet: 'fontawesome-v5',
-      // lang: 'de', // Quasar language
+      lang: 'ru', // Quasar language
 
       // all: true, // --- includes everything; for dev only!
 
@@ -50,9 +50,14 @@ module.exports = function (ctx) {
         'QCardSection',
         'QCardActions',
         'QSeparator',
+        'QSelect',
         'QImg',
         'QExpansionItem',
-        'QTree'
+        'QTree',
+        'QTable',
+        'QTh',
+        'QTr',
+        'QTd'
 
       ],
 
