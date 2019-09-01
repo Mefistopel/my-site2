@@ -47,7 +47,7 @@
           </q-item-section>
           <q-item-section>
             <q-item-label>Главная информация</q-item-label>
-            <q-item-label caption>Рекомендовано к прочтению</q-item-label>
+            <q-item-label caption>Рад приветствовать тебя на сайте!</q-item-label>
           </q-item-section>
         </q-item>
         <q-item clickable @click="toAbout">
@@ -59,6 +59,15 @@
             <q-item-label caption>Сводная информация</q-item-label>
           </q-item-section>
         </q-item>
+        <!-- <q-item clickable @click="notifyBuild">
+          <q-item-section avatar>
+            <q-icon name="ion-tablet-landscape" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Мини-игра</q-item-label>
+            <q-item-label caption>Простая мини-игра для времяпровождения</q-item-label>
+          </q-item-section>
+        </q-item> -->
         <q-item to="services">
           <q-item-section avatar>
             <q-icon name="feedback" />
@@ -118,17 +127,27 @@ export default {
         color: 'primary'
       }).onOk(data => {
         if (data === '1') this.$router.push('about')
-        else this.notify()
+        else this.notifyError()
       }).onCancel(() => {}).onDismiss(() => {
       })
     },
-    notify () {
+    notifyError () {
       this.$q.notify({
         message: `Упс! Вы ввели не правильный код.`,
         timeout: 1400, // in milliseconds; 0 means no timeout
         color: 'negative',
         textColor: 'white',
         icon: 'error',
+        position: 'center'
+      })
+    },
+    notifyBuild () {
+      this.$q.notify({
+        message: `Упс! Данный функционал пока отсутсвует.`,
+        timeout: 300, // in milliseconds; 0 means no timeout
+        color: 'warning',
+        textColor: 'black',
+        icon: 'build',
         position: 'center'
       })
     }

@@ -6,6 +6,7 @@
       <div class="text-h5">Сводная информация</div>
       <div>
         нет вредных привычек, водительское удостоверение категории «B, B1», опытный пользователь ПК.
+        <br>
         <b>Основные пакеты программ:</b> GIT, MS Office (Excel, Word, Access, Visio, PowerPoint),
         MindManager, VS Code, Atom.
         <br>
@@ -16,7 +17,7 @@
         <b>Системы автоматического тестирования:</b> Hermione (Yandex), Browser automation studio
         <br>
         <b>Баг-трекерная система:</b> Redmine
-        <br>
+        <br> <br>
         Опыт написания тестовых сценариев, тест-кейсов, понятное и подробное описание багов
       </div>
     </div>

@@ -3,7 +3,7 @@
     <q-select
         color="purple"
         bg-color="deep-purple-5"
-        label="Выберите категорию"
+        label="Выберите раздел"
         transition-show="scale"
         transition-hide="scale"
         filled
@@ -60,6 +60,7 @@
 import Films from './recommend/films'
 import Serials from './recommend/serials'
 import Books from './recommend/books'
+import Links from './recommend/links'
 
 export default {
   name: 'Recommend',
@@ -73,13 +74,13 @@ export default {
         {
           name: 'name',
           required: true,
-          label: 'Имя',
+          label: 'Название',
           align: 'left',
           field: row => row.name,
           format: val => `${val}`,
           sortable: true
         },
-        { name: 'genre', align: 'left', label: 'Жанр', field: 'genre', sortable: true, style: 'max-width: 10px' }
+        { name: 'genre', align: 'left', label: 'Категория', field: 'genre', sortable: true, style: 'max-width: 30px' }
       ],
       data: []
     }
@@ -97,14 +98,15 @@ export default {
           this.data = Books.books
           break
         case 'Полезные ссылки':
-          this.$q.notify({
-            message: `Упс! Данный функционал пока отсутсвует.`,
-            timeout: 300, // in milliseconds; 0 means no timeout
-            color: 'warning',
-            textColor: 'black',
-            icon: 'build',
-            position: 'center'
-          })
+          this.data = Links.links
+          // this.$q.notify({
+          //   message: `Упс! Данный функционал пока отсутсвует.`,
+          //   timeout: 300, // in milliseconds; 0 means no timeout
+          //   color: 'warning',
+          //   textColor: 'black',
+          //   icon: 'build',
+          //   position: 'center'
+          // })
           break
       }
     }
@@ -119,7 +121,7 @@ export default {
       document.execCommand('copy')
       document.body.removeChild(copytext)
       this.$q.notify({
-        message: `Имя успешно скопировано в буфер обмена!`,
+        message: `Название успешно скопировано в буфер обмена!`,
         timeout: 300, // in milliseconds; 0 means no timeout
         color: 'info',
         textColor: 'black',

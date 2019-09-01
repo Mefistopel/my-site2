@@ -11,5 +11,18 @@ export default {
       comparison = -1
     }
     return comparison
+  },
+  compareGenre: function (a, b) {
+    // Используем toUpperCase() для преобразования регистра
+    const genreA = a.genre.toUpperCase()
+    const genreB = b.genre.toUpperCase()
+
+    let comparison = 0
+    if (genreA > genreB) {
+      comparison = 1
+    } else if (genreA < genreB) {
+      comparison = -1
+    }
+    return comparison
   }
 }

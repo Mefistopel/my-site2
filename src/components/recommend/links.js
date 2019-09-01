@@ -2,5 +2,5 @@ import Compare from './functions'
 import Data from './data'
 
 export default {
-  serials: Data.serials.sort(Compare.compare)
+  links: Data.links.sort(Compare.compareGenre)
 }
