@@ -30,7 +30,7 @@
             Образование
           </q-tooltip>
         </q-btn>
-        <q-btn
+        <!-- <q-btn
           :color="title == 'Карьера' ? 'primary' : 'white'"
           icon="ion-trending-up"
          @click="work"
@@ -41,7 +41,7 @@
           >
             Карьера
           </q-tooltip>
-        </q-btn>
+        </q-btn> -->
         <q-btn
           :color="title == 'Навыки' ? 'primary' : 'white'"
           icon="ion-ribbon"
@@ -52,18 +52,6 @@
             transition-hide="scale"
           >
             Навыки, знания
-          </q-tooltip>
-        </q-btn>
-        <q-btn
-          :color="title == 'Рекомендую' ? 'primary' : 'white'"
-          icon="ion-ice-cream"
-          @click="recommend"
-          flat>
-          <q-tooltip
-            transition-show="scale"
-            transition-hide="scale"
-          >
-            Рекомендую
           </q-tooltip>
         </q-btn>
       </q-card-actions>
@@ -78,7 +66,6 @@
         <app-education v-else-if="title == 'Образование'"/>
         <app-work v-else-if="title == 'Карьера'"/>
         <app-skills v-else-if="title == 'Навыки'"/>
-        <app-recommend v-else-if="title == 'Рекомендую'"/>
     </q-card>
   </q-page>
 </template>
@@ -90,15 +77,12 @@
 import Education from '../components/education'
 import Work from '../components/work'
 import Skills from '../components/skills'
-import Recommend from '../components/recommend'
-
 export default {
   name: 'about',
   components: {
     appEducation: Education,
     appWork: Work,
-    appSkills: Skills,
-    appRecommend: Recommend
+    appSkills: Skills
   },
   data () {
     return {

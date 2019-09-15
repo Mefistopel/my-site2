@@ -50,6 +50,15 @@
             <q-item-label caption>Рад приветствовать тебя на сайте!</q-item-label>
           </q-item-section>
         </q-item>
+        <q-item clickable to="recommend">
+          <q-item-section avatar>
+            <q-icon name="ion-ice-cream" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Рекомендую</q-item-label>
+            <q-item-label caption>Что посмотреть/почитать</q-item-label>
+          </q-item-section>
+        </q-item>
         <q-item clickable @click="toAbout">
           <q-item-section avatar>
             <q-icon name="ion-trophy" />
@@ -68,7 +77,7 @@
             <q-item-label caption>Простая мини-игра для времяпровождения</q-item-label>
           </q-item-section>
         </q-item> -->
-        <q-item to="services">
+        <!-- <q-item to="services">
           <q-item-section avatar>
             <q-icon name="feedback" />
           </q-item-section>
@@ -76,7 +85,7 @@
             <q-item-label>Услуги</q-item-label>
             <q-item-label caption>Рекомендовано к прочтению</q-item-label>
           </q-item-section>
-        </q-item>
+        </q-item> -->
         <q-item clickable tag="a" target="_blank" rel="noopener" href="https://vk.com/an.yanusov">
           <q-item-section avatar>
             <q-icon name="ion-logo-vk"></q-icon>
@@ -117,7 +126,7 @@ export default {
     toAbout () {
       this.$q.dialog({
         title: 'Подтверждение',
-        message: 'Для доступа к разделу введите код: 1',
+        message: 'Для доступа к разделу введите код: Янусов',
         prompt: {
           model: '',
           type: 'text' // optional
@@ -126,7 +135,7 @@ export default {
         persistent: true,
         color: 'primary'
       }).onOk(data => {
-        if (data === '1') this.$router.push('about')
+        if (data === 'Янусов') this.$router.push('about')
         else this.notifyError()
       }).onCancel(() => {}).onDismiss(() => {
       })
