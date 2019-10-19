@@ -30,18 +30,18 @@
             Образование
           </q-tooltip>
         </q-btn>
-        <!-- <q-btn
+        <q-btn
           :color="title == 'Карьера' ? 'primary' : 'white'"
-          icon="ion-trending-up"
+          icon="ion-done-all"
          @click="work"
          flat>
           <q-tooltip
             transition-show="scale"
             transition-hide="scale"
           >
-            Карьера
+            Портфолио
           </q-tooltip>
-        </q-btn> -->
+        </q-btn>
         <q-btn
           :color="title == 'Навыки' ? 'primary' : 'white'"
           icon="ion-ribbon"

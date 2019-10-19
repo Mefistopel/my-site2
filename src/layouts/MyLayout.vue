@@ -59,12 +59,12 @@
             <q-item-label caption>Что посмотреть/почитать</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable @click="toAbout">
+        <q-item clickable @click="toAbout" :active="$route.path == '/about'">
           <q-item-section avatar>
             <q-icon name="ion-trophy" />
           </q-item-section>
           <q-item-section>
-            <q-item-label>Обо мне</q-item-label>
+            <q-item-label >Обо мне</q-item-label>
             <q-item-label caption>Сводная информация</q-item-label>
           </q-item-section>
         </q-item>

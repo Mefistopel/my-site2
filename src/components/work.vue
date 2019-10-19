@@ -1,138 +1,117 @@
 <template>
-  <div
-    class="q-pa-md"
-    style="border-radius: 5px">
-    <q-tree
-      color='white'
-      text-color='grey-4'
-      dark
-      :nodes="props"
-      node-key="label"
-      :expanded.sync="expanded"
-    />
+  <div class="q-pa-md">
+    <q-table
+      :data="data"
+      :columns="columns"
+      row-key="name"
+      selection="multiple"
+      :selected.sync="selected"
+      :filter="filter"
+      grid
+      hide-header
+      virtual-scroll
+      :pagination.sync="pagination"
+      :virtual-scroll-sticky-start="48"
+      :rows-per-page-options="[0]"
+      :table-style="{'height': '500px'}"
+      dense
+    >
+
+      <template v-slot:item="props">
+        <div
+          class="q-pa-xs col-xs-12 col-sm-6 col-md-4 col-lg-3 grid-style-transition"
+        >
+          <q-card class="bg-deep-purple-5 text-white">
+
+            <q-separator />
+            <q-list dense>
+              <q-item v-for="col in props.cols.filter(col => col.name !== 'desc')" :key="col.name">
+                <q-item-section>
+                  <q-item-label>{{ col.value }}</q-item-label>
+                </q-item-section>
+
+              </q-item>
+            </q-list>
+            <q-separator />
+            <q-card-section align="center">
+              <q-btn
+                      icon="ion-document"
+                      @click="goToPage(props.row.link)"
+                      flat
+                    >
+                        <q-tooltip
+                        transition-show="scale"
+                        transition-hide="scale"
+                      >
+                        Просмотреть документ
+                      </q-tooltip>
+                    </q-btn>
+            </q-card-section>
+          </q-card>
+        </div>
+      </template>
+
+    </q-table>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Work',
-  data: () => ({
-    props: [
-      {
-        label: 'Карьерный путь',
-        icon: 'work',
-        header: 'root',
-        children: [
-          {
-            label: 'ООО "Элком+" г.Томск',
-            icon: 'work',
-            children: [
-              {
-                label: 'год: 2018 - 2019'
-              },
-              {
-                label: 'период: 1 год (продолжается)'
-              },
-              {
-                label: 'Департамент АСУ ТП. Отдел разработки систем управления.'
-              },
-              {
-                label: 'Разработчик ПО',
-                children: [
-                  {
-                    label: `период: Март 2019 — по настоящее время`
-                  },
-                  { label: `
-                      Принимаю участие в разработке программного продукта Fronted-части с 
-                      использованием фреймворка Quasar. Посредством использования системы 
-                      отслеживания ошибок Redmine сообщал и исправлял, найденные проблемы в продукте. 
-                      Хорошо знаком с фреймворком Vue.js, так как указанный фреймфорк активно 
-                      использовался в рамках компании. Помимо основной работы являюсь гибким 
-                      специалистом и могу участвовать в помощи коллегам. Тем самым выработал 
-                      способность "ловить все на лету". 
-                      Также совмещаю должность Тестировщика ПО и пишу автоматические тестовые 
-                      сценарии для разрабатываемого WEB-ПО на Hermione (Yandex).
-                    `
-                  }
-                ]
-              },
-              {
-                label: 'Тестировщик ПО',
-                children: [
-                  {
-                    label: `период: Август 2018 — Март 2019`
-                  },
-                  {
-                    label: `Стажировка в отделе АСУ ТП на должности «Тестировщика ПО». 
-                      Разрабатывал кейс-тесты / чек-листы для тестирования WEB-ПО со следующими видами 
-                      тестирования: Функциональное, Юзабилити, Интерфейс, Нагрузочное и Безопасность. 
-                      В качестве автоматизированного ПО для тестирования WEB-приложений нашёл и 
-                      применил программный продукт Browser Automation Studio. 
-                      Для регистрации багов применено открытое серверное веб-приложение для 
-                      управления проектами и задачами Redmine.`
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            label: 'стажировка: ОАО "ЭлеСи" г.Томск',
-            icon: 'room_service',
-            children: [
-              {
-                label: 'год: 2017'
-              },
-              {
-                label: 'период: 3 месяца'
-              },
-              {
-                label: 'Департамент автоматизации нефтегазовой отрасли'
-              },
-              {
-                label: 'Должность "Инженер-разработчик АСУ": разбирался/работал со SCADA WinCC OA (делал свои мини-проекты, чтобы посмотреть как работает данная SCADA-система. Настраивал WEB-сервер SCADA для вывода в сеть).'
-              }
-            ]
-          },
-          {
-            label: 'производственная практика: ООО "Индас Холдинг" г. Новокузнецк',
-            icon: 'photo',
-            children: [
-              {
-                label: 'год: 2016'
-              },
-              {
-                label: 'период: 1 месяц'
-              },
-              {
-                label: 'Отдел проектирования и автоматизации производств'
-              },
-              {
-                label: 'Произведено ознакомление с MES-уровнем, ознакомился с проектированием систем отображения информации (СОИ), разработана СОИ для объекта: «Дуговая сталеплавильная печь прямого действия» на языке программирования JavaScript с применением библиотеки FabricJS'
-              }
-            ]
-          },
-          {
-            label: 'производственная практика: ООО "Шахта Листвяжная" г.Белово',
-            icon: 'photo',
-            children: [
-              {
-                label: 'год: 2015'
-              },
-              {
-                label: 'период: 1 месяц'
-              },
-              {
-                label: 'Отдел АСУ ТП'
-              },
-              {
-                label: 'Изучена технология автоматизации и общие системы АСУ, применяемые в угольном деле, а также произведено ознакомление и настройка с расключением контроллеров UML-10'
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    expanded: ['Карьерный путь', 'ООО "Элком+" г.Томск']
-  })
+  data () {
+    return {
+      filter: '',
+      pagination: {
+        rowsPerPage: 0
+      },
+      selected: [],
+      columns: [
+        {
+          name: 'desc',
+          required: true,
+          label: 'Организация',
+          align: 'left',
+          field: row => row.name,
+          format: val => `${val}`,
+          sortable: true
+        },
+        { name: 'organization', align: 'center', label: 'Организация', field: 'organization', sortable: true },
+        { name: 'type', label: 'Вид', field: 'type', sortable: true },
+        { name: 'year', label: 'Год', field: 'year' }
+      ],
+      data: [
+        {
+          name: 'ElcomPlus2019',
+          organization: `ООО "Элком+"`,
+          type: `Характеристика`,
+          year: 2019,
+          link: `https://drive.google.com/open?id=1UlS_eZ_Dxj4pE26j456KB8h0Lci1v2TW`
+        },
+        {
+          name: 'Territory',
+          organization: `Территория смыслов 2019`,
+          type: `Пиьсмо ректору ТПУ`,
+          year: 2019,
+          link: `https://drive.google.com/open?id=16nMxcxUV6ie-mnAeJs1aXOEgzee1fvjM`
+        },
+        {
+          name: 'SchoolMoscow',
+          organization: `Зимняя школа Президентской академии 2019`,
+          type: `Пиьсмо ректору ТПУ`,
+          year: 2019,
+          link: `https://drive.google.com/open?id=1CLi2xwKxVINULVvd1N-2szNbPbH4YzRM`
+        }
+      ]
+    }
+  },
+  methods: {
+    goToPage: function (link) {
+      window.open(link, `portfolioYanusov`)
+    }
+  }
 }
 </script>
+
+<style lang="sass">
+.grid-style-transition
+  transition: transform .28s, background-color .28s
+</style>
