@@ -80,13 +80,6 @@ export default {
       ],
       data: [
         {
-          name: 'ElcomPlus2019',
-          organization: `ООО "Элком+"`,
-          type: `Характеристика`,
-          year: 2019,
-          link: `https://drive.google.com/open?id=1UlS_eZ_Dxj4pE26j456KB8h0Lci1v2TW`
-        },
-        {
           name: 'Territory',
           organization: `Территория смыслов 2019`,
           type: `Пиьсмо ректору ТПУ`,

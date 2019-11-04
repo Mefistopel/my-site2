@@ -9,8 +9,6 @@
               color="purple"
               bg-color="deep-purple-5"
               label="Выберите раздел"
-              transition-show="scale"
-              transition-hide="scale"
               filled
               dark
               popup-content-class="bg-deep-purple-4 text-white"
@@ -39,7 +37,7 @@
                 :pagination.sync="pagination"
                 :virtual-scroll-sticky-start="48"
                 :rows-per-page-options="[0]"
-                :table-style="{'height': '484px'}"
+                :table-style="{'height': '480px'}"
                 dense
               >
               <template v-slot:body="props">
